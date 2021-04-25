@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Hearthstone Wiki
 
-[Hearthstone](www.hearthstone.com) is a online collectible card game, in this app you will be able to explore all the different cards and expansions.
+[Hearthstone](https://playhearthstone.com/en-us) is a online collectible card game, in this app you will be able to explore all the different cards and expansions.
 
 ## Built with
 
