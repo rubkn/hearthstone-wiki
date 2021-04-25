@@ -13,12 +13,7 @@ export const GlobalStyles = createGlobalStyle`
   
     body {
         background-color: #f7f7f7;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         min-height: 100vh;
-        margin: 0;
         font-family: 'Lato', sans-serif;
     }
 `

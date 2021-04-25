@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/Global'
 import { lightTheme, darkTheme } from './styles/Theme'
 import CardsGrid from './components/CardsGrid';
-import fetchCards from './api/FetchCards';
 
 export default function App() {
     return (
@@ -15,7 +14,7 @@ export default function App() {
                 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
             </Helmet>
             <GlobalStyles />
-            <Header />
+            <Header/>
             <CardsGrid />
         </ThemeProvider>
     );

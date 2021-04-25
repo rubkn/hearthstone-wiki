@@ -3,12 +3,13 @@ import fetchCards from '../api/FetchCards'
 import styled from 'styled-components'
 import Card from './Card'
 
-export const Container = styled.div`
+const Container = styled.div`
+    margin: 2.5% 5% 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: flex-start;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     align-content: space-around;
 `;
 
@@ -22,7 +23,7 @@ const CardsGrid = () => {
             {loading && <h1>loading...</h1>}
             {error && <h1>error...</h1>}
             {cards.map(card => {
-                return <Card key={card.dbfId} card={card} />
+                return <Card key={card.id} card={card} />
             })}
         </Container>
     )

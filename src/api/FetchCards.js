@@ -28,21 +28,23 @@ const options = {
       'x-rapidapi-key': API_KEY,
       'x-rapidapi-host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
     }
-  };
+};
 
-export default function fetchCards(params, page) {
+const api = 'https://api.hearthstonejson.com/v1/79904/enUS/cards.collectible.json'
+
+export default function fetchCards(params, collectible) {
     const [state, dispatch] = useReducer(reducer, { cards: [], loading: true})
 
     useEffect(() => {
         const cancelToken = axios.CancelToken.source()
 
         dispatch({ type: ACTIONS.MAKE_REQUEST })
-        axios.request(options, {
+        axios.get(api, {
             cancelToken: cancelToken.token,
-            params: { name: true, locale: true, collectible: true, page: page, ...params }
+            params: { name: true, locale: true, collectible: collectible, ...params }
         }).then(res => {
-            console.log(res.data.Core)
-            dispatch({ type: ACTIONS.GET_DATA, payload: {cards: res.data }})
+            console.log(res.data)
+            dispatch({ type: ACTIONS.GET_DATA, payload: { cards: res.data } })
         }).catch(err => {
             if (axios.isCancel(err)) return
             dispatch({type: ACTIONS.ERROR, payload: { error: err }})
@@ -52,7 +54,7 @@ export default function fetchCards(params, page) {
             cancelToken.cancel()
         }
 
-    }, [params, page])
+    }, [params, collectible])
     
     return state
 }

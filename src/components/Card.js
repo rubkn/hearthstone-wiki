@@ -1,33 +1,35 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
-export const Image = styled.img`
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-`;
-
-export const ImageCard = styled.div`
-    width: 10em;
-    height: 10em;
+const Render = styled.div`
     display: flex;
-    justify-content: center;
+    width: 15rem;
+    text-align: center;
     align-items: center;
-    overflow: hidden;
-    border: 5px solid black;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+
+    img {
+        max-width: 100%
+    }
+
+    span {
+        font-weight: 700;
+    }
 `;
 
-const Card = ({ card: {img, name} }) => {
+function getRender(id) {
+    return `https://art.hearthstonejson.com/v1/render/latest/enUS/256x/${id}.png`
+}
+
+const Card = ({ card: {id, name} }) => {
     return (
-        <Fragment>
-            <ImageCard>
-                <Image src={img} alt={name} />
-            </ImageCard>
-            <br/>
-            {name}
-        </Fragment>
+        <Render>
+            <img src={getRender(id)} alt={name}/>
+            <span>{name}</span>
+        </Render>
     )
 }
 
